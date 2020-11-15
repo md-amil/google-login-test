@@ -9,11 +9,14 @@ export default class ProfileScreen extends Component {
     }
   
     logout =() =>{
+      
         await Google.logOutAsync({
           accessToken:this.state.accessToken, 
           androidClientId:ANDROID_CLIENT_ID,
           androidStandaloneAppClientId:ANDROID_CLIENT_ID
         })
+       this.props.navigation.navigate("Login")
+
     }
 
   render() {
@@ -24,7 +27,7 @@ export default class ProfileScreen extends Component {
         </Text>
         <Button
           title="Sign out"
-          onPress={() => this.props.navigation.navigate("Login")}
+          onPress={() => }
         />
       </View>
     );
