@@ -5,16 +5,19 @@ const ANDROID_CLIENT_ID =  "i have deleted client id ";
 export default class ProfileScreen extends Component {
   
     componentDidMount(){
-      this.setState({accessToken})
+      this.setState({accessToken:this.state.accessToken})
     }
   
-    logout =() =>{
-      
+    logout = async () =>{
+      try{
         await Google.logOutAsync({
           accessToken:this.state.accessToken, 
           androidClientId:ANDROID_CLIENT_ID,
           androidStandaloneAppClientId:ANDROID_CLIENT_ID
         })
+        } catch(error){
+            console.log(error)
+         }
        this.props.navigation.navigate("Login")
 
     }
@@ -27,7 +30,7 @@ export default class ProfileScreen extends Component {
         </Text>
         <Button
           title="Sign out"
-          onPress={() => }
+          onPress={this.login() }
         />
       </View>
     );
