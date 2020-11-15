@@ -5,7 +5,7 @@ const ANDROID_CLIENT_ID =  "i have deleted client id ";
 export default class ProfileScreen extends Component {
   
     componentDidMount(){
-      this.setState({accessToken:this.state.accessToken})
+      this.setState({accessToken:this.props.navigation.getParam("accessToken")})
     }
   
     logout = async () =>{
